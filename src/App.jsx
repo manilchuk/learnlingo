@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useAuth } from "./context/useAuth";
-import Modal from "./components/Modal/Modal";
+import AuthModal from "./components/AuthForms/AuthModal";
 
 function App() {
-  const { user, loading } = useAuth();
+  const { user, loading, logout } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (loading) {
@@ -11,20 +11,17 @@ function App() {
   }
 
   return (
-    <div>
+    <div style={{ padding: 40 }}>
       <h1>LearnLingo</h1>
       {user ? (
-        <p>Вітаємо, {user.displayName || user.email}!</p>
+        <div>
+          <p>Вітаємо, {user.displayName || user.email}!</p>
+          <button onClick={logout}>Logout</button>
+        </div>
       ) : (
-        <p>Ви не авторизовані.</p>
+        <button onClick={() => setIsModalOpen(true)}>Log in</button>
       )}
-      <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <h2>Тестова модалка</h2>
-          <p>Спробуйте закрити її трьома способами: хрестик, backdrop, Esc.</p>
-        </Modal>
-      )}
+      {isModalOpen && <AuthModal onClose={() => setIsModalOpen(false)} />}
     </div>
   );
 }
