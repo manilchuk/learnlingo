@@ -4,6 +4,7 @@ import { useFavorites } from "../../hooks/useFavorites";
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import Filter from "../../components/Filter/Filter";
 import BookTrialModal from "../../components/BookTrialModal/BookTrialModal";
+import AuthModal from "../../components/AuthForms/AuthModal";
 
 const ITEMS_PER_PAGE = 3;
 
@@ -18,6 +19,7 @@ const Teachers = () => {
   });
   const { toggleFavorite, isFavorite } = useFavorites();
   const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   useEffect(() => {
     const loadTeachers = async () => {
@@ -80,6 +82,7 @@ const Teachers = () => {
               isFavorite={isFavorite(teacher.id)}
               onToggleFavorite={toggleFavorite}
               onBookTrial={(t) => setSelectedTeacher(t)}
+              onRequireAuth={() => setIsAuthModalOpen(true)}
             />
           ))}
 
@@ -112,6 +115,12 @@ const Teachers = () => {
         <BookTrialModal
           teacher={selectedTeacher}
           onClose={() => setSelectedTeacher(null)}
+        />
+      )}
+      {isAuthModalOpen && (
+        <AuthModal
+          onClose={() => setIsAuthModalOpen(false)}
+          initialMode="login"
         />
       )}
     </div>

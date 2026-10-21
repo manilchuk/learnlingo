@@ -8,15 +8,14 @@ const TeacherCard = ({
   isFavorite,
   onToggleFavorite,
   onBookTrial,
+  onRequireAuth,
 }) => {
   const { user } = useAuth();
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleFavoriteClick = () => {
     if (!user) {
-      alert(
-        "This feature is available only for authorized users. Please log in.",
-      );
+      onRequireAuth();
       return;
     }
     onToggleFavorite(teacherId);
