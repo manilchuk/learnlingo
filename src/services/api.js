@@ -8,22 +8,5 @@ export const fetchAllTeachers = async () => {
   if (!snapshot.exists()) return [];
 
   const data = snapshot.val();
-  return Object.values(data);
-};
-
-export const fetchTeachersWithPagination = async (page = 1, limit = 4) => {
-  const allTeachers = await fetchAllTeachers();
-  const startIndex = (page - 1) * limit;
-  const endIndex = startIndex + limit;
-
-  return {
-    teachers: allTeachers.slice(startIndex, endIndex),
-    hasMore: endIndex < allTeachers.length,
-    total: allTeachers.length,
-  };
-};
-
-export const fetchTeachersByIds = async (ids) => {
-  const allTeachers = await fetchAllTeachers();
-  return allTeachers.filter((_, index) => ids.includes(String(index)));
+  return Object.entries(data).map(([id, teacher]) => ({ id, ...teacher }));
 };
