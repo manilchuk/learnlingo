@@ -3,6 +3,7 @@ import { fetchAllTeachers } from "../../services/api";
 import { useFavorites } from "../../hooks/useFavorites";
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import Filter from "../../components/Filter/Filter";
+import BookTrialModal from "../../components/BookTrialModal/BookTrialModal";
 
 const ITEMS_PER_PAGE = 3;
 
@@ -16,6 +17,7 @@ const Teachers = () => {
     price: null,
   });
   const { toggleFavorite, isFavorite } = useFavorites();
+  const [selectedTeacher, setSelectedTeacher] = useState(null);
 
   useEffect(() => {
     const loadTeachers = async () => {
@@ -77,7 +79,7 @@ const Teachers = () => {
               teacherId={teacher.id}
               isFavorite={isFavorite(teacher.id)}
               onToggleFavorite={toggleFavorite}
-              onBookTrial={(t) => console.log("Book trial:", t)}
+              onBookTrial={(t) => setSelectedTeacher(t)}
             />
           ))}
 
@@ -105,6 +107,12 @@ const Teachers = () => {
             </div>
           )}
         </>
+      )}
+      {selectedTeacher && (
+        <BookTrialModal
+          teacher={selectedTeacher}
+          onClose={() => setSelectedTeacher(null)}
+        />
       )}
     </div>
   );

@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { fetchAllTeachers } from "../../services/api";
 import { useFavorites } from "../../hooks/useFavorites";
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
+import BookTrialModal from "../../components/BookTrialModal/BookTrialModal";
 
 const Favorites = () => {
   const [allTeachers, setAllTeachers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedTeacher, setSelectedTeacher] = useState(null);
   const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
   useEffect(() => {
@@ -51,9 +53,16 @@ const Favorites = () => {
             teacherId={teacher.id}
             isFavorite={isFavorite(teacher.id)}
             onToggleFavorite={toggleFavorite}
-            onBookTrial={(t) => console.log("Book trial:", t)}
+            onBookTrial={(t) => setSelectedTeacher(t)}
           />
         ))
+      )}
+
+      {selectedTeacher && (
+        <BookTrialModal
+          teacher={selectedTeacher}
+          onClose={() => setSelectedTeacher(null)}
+        />
       )}
     </div>
   );
