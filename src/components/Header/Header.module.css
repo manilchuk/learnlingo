@@ -1,0 +1,99 @@
+.header {
+  padding: 20px 0;
+  background-color: #f8f8f8;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #121417;
+}
+
+.logoIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4c550 50%, #9fb1c2 50%);
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+}
+
+.link {
+  font-size: 16px;
+  color: #121417;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #f4c550;
+}
+
+.active {
+  font-weight: 600;
+  color: #f4c550;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #121417;
+}
+
+.registerButton {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #121417;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.registerButton:hover {
+  background-color: #2a2d34;
+}
+
+.userName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #121417;
+}
+
+.logoutButton {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #121417;
+  background-color: #f4c550;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.logoutButton:hover {
+  background-color: #ffd76e;
+}
