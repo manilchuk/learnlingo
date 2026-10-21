@@ -37,3 +37,16 @@
 .closeButton:hover {
   background-color: #f4f4f4;
 }
+
+@media (max-width: 600px) {
+  .modal {
+    padding: 48px 20px 24px;
+    border-radius: 20px;
+    max-height: 95vh;
+  }
+
+  .closeButton {
+    top: 12px;
+    right: 12px;
+  }
+}

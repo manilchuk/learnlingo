@@ -1,0 +1,52 @@
+.page {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading {
+  padding: 40px;
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 40px;
+}
+
+.loadMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.loadMoreButton {
+  padding: 16px 48px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #121417;
+  background-color: #f4c550;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.loadMoreButton:hover {
+  background-color: #ffd76e;
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 16px;
+  }
+
+  .loadMoreButton {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+  }
+}

@@ -5,6 +5,7 @@ import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import Filter from "../../components/Filter/Filter";
 import BookTrialModal from "../../components/BookTrialModal/BookTrialModal";
 import AuthModal from "../../components/AuthForms/AuthModal";
+import css from "./Teachers.module.css";
 
 const ITEMS_PER_PAGE = 3;
 
@@ -12,14 +13,14 @@ const Teachers = () => {
   const [allTeachers, setAllTeachers] = useState([]);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [loading, setLoading] = useState(true);
+  const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [filters, setFilters] = useState({
     language: "",
     level: "",
     price: null,
   });
   const { toggleFavorite, isFavorite } = useFavorites();
-  const [selectedTeacher, setSelectedTeacher] = useState(null);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   useEffect(() => {
     const loadTeachers = async () => {
@@ -62,16 +63,14 @@ const Teachers = () => {
     setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
   };
 
-  if (loading) return <div style={{ padding: 40 }}>Loading...</div>;
+  if (loading) return <div className={css.loading}>Loading...</div>;
 
   return (
-    <div style={{ padding: 40, maxWidth: 1200, margin: "0 auto" }}>
+    <div className={css.page}>
       <Filter filters={filters} onFilterChange={handleFilterChange} />
 
       {filteredTeachers.length === 0 ? (
-        <p style={{ textAlign: "center", padding: 40 }}>
-          No teachers match your filters.
-        </p>
+        <p className={css.emptyMessage}>No teachers match your filters.</p>
       ) : (
         <>
           {visibleTeachers.map((teacher) => (
@@ -87,36 +86,22 @@ const Teachers = () => {
           ))}
 
           {hasMore && (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: 24,
-              }}
-            >
-              <button
-                onClick={handleLoadMore}
-                style={{
-                  padding: "16px 48px",
-                  fontSize: 18,
-                  fontWeight: 500,
-                  color: "#121417",
-                  backgroundColor: "#f4c550",
-                  borderRadius: 12,
-                }}
-              >
+            <div className={css.loadMoreWrapper}>
+              <button className={css.loadMoreButton} onClick={handleLoadMore}>
                 Load more
               </button>
             </div>
           )}
         </>
       )}
+
       {selectedTeacher && (
         <BookTrialModal
           teacher={selectedTeacher}
           onClose={() => setSelectedTeacher(null)}
         />
       )}
+
       {isAuthModalOpen && (
         <AuthModal
           onClose={() => setIsAuthModalOpen(false)}

@@ -1,0 +1,47 @@
+.page {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 32px;
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #8a8a89;
+}
+
+.loading {
+  padding: 40px;
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  .emptyMessage {
+    font-size: 16px;
+    padding: 24px;
+  }
+}

@@ -4,6 +4,7 @@ import { useFavorites } from "../../hooks/useFavorites";
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import BookTrialModal from "../../components/BookTrialModal/BookTrialModal";
 import AuthModal from "../../components/AuthForms/AuthModal";
+import css from "./Favorites.module.css";
 
 const Favorites = () => {
   const [allTeachers, setAllTeachers] = useState([]);
@@ -26,25 +27,18 @@ const Favorites = () => {
     loadTeachers();
   }, []);
 
-  if (loading) return <div style={{ padding: 40 }}>Loading...</div>;
+  if (loading) return <div className={css.loading}>Loading...</div>;
 
   const favoriteTeachers = allTeachers.filter((teacher) =>
     favorites.includes(teacher.id),
   );
 
   return (
-    <div style={{ padding: 40, maxWidth: 1200, margin: "0 auto" }}>
-      <h1 style={{ marginBottom: 32 }}>Favorites</h1>
+    <div className={css.page}>
+      <h1 className={css.title}>Favorites</h1>
 
       {favoriteTeachers.length === 0 ? (
-        <p
-          style={{
-            textAlign: "center",
-            padding: 40,
-            fontSize: 18,
-            color: "#8a8a89",
-          }}
-        >
+        <p className={css.emptyMessage}>
           You haven't added any teachers to favorites yet.
         </p>
       ) : (

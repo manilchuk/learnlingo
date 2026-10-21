@@ -231,3 +231,86 @@
 .bookButton:hover {
   background-color: #ffd76e;
 }
+
+@media (max-width: 900px) {
+  .top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .meta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .favoriteButton {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
+
+  .card {
+    position: relative;
+  }
+
+  .details,
+  .experience,
+  .reviews,
+  .levels {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .avatarWrapper {
+    width: 90px;
+    height: 90px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .meta {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .metaItem {
+    background-color: #f8f8f8;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+
+  .detailLine {
+    font-size: 13px;
+  }
+
+  .levelBadge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .bookButton {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+  }
+}

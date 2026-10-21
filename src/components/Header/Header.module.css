@@ -96,3 +96,66 @@
 .logoutButton:hover {
   background-color: #ffd76e;
 }
+
+@media (max-width: 900px) {
+  .container {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .nav {
+    gap: 24px;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    padding-top: 12px;
+    border-top: 1px solid #1214171a;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .registerButton,
+  .logoutButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .loginButton {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .logoIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav {
+    gap: 16px;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+
+  .userName {
+    display: none;
+  }
+
+  .registerButton,
+  .logoutButton {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
