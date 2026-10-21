@@ -4,7 +4,7 @@ A web application for finding language tutors online. Users can browse teachers,
 
 ## 🚀 Live Demo
 
-[Add link to deployed app here after deployment]
+https://sweet-choux-2ae5bd.netlify.app
 
 ## 📋 Features
 
@@ -36,7 +36,7 @@ A web application for finding language tutors online. Users can browse teachers,
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/learnlingo.git
+   git clone https://github.com/manilchuk/learnlingo.git
    cd learnlingo
    ```
 
