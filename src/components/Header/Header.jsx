@@ -24,7 +24,9 @@ const Header = () => {
       <header className={css.header}>
         <div className={css.container}>
           <Link to="/" className={css.logo}>
-            <span className={css.logoIcon}></span>
+            <span className={css.logoIcon}>
+              <img src="/favicon.svg" alt="" />
+            </span>
             LearnLingo
           </Link>
 
