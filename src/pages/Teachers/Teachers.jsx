@@ -1,35 +1,39 @@
 import { useEffect, useState } from "react";
 import { fetchAllTeachers } from "../../services/api";
+import TeacherCard from "../../components/TeacherCard/TeacherCard";
 
 const Teachers = () => {
   const [teachers, setTeachers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const loadTeachers = async () => {
       try {
         const data = await fetchAllTeachers();
-        console.log("Teachers loaded:", data);
         setTeachers(data);
       } catch (err) {
-        console.error("Error loading teachers:", err);
-        setError("Failed to load teachers");
+        console.error(err);
       } finally {
         setLoading(false);
       }
     };
-
     loadTeachers();
   }, []);
 
   if (loading) return <div style={{ padding: 40 }}>Loading...</div>;
-  if (error) return <div style={{ padding: 40 }}>{error}</div>;
 
   return (
-    <div style={{ padding: 40 }}>
-      <h1>Teachers ({teachers.length})</h1>
-      <pre>{JSON.stringify(teachers[0], null, 2)}</pre>
+    <div style={{ padding: 40, maxWidth: 1200, margin: "0 auto" }}>
+      {teachers.slice(0, 2).map((teacher, index) => (
+        <TeacherCard
+          key={index}
+          teacher={teacher}
+          teacherId={String(index)}
+          isFavorite={false}
+          onToggleFavorite={(id) => console.log("Toggle favorite:", id)}
+          onBookTrial={(t) => console.log("Book trial:", t)}
+        />
+      ))}
     </div>
   );
 };
