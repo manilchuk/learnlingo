@@ -148,10 +148,6 @@
     font-size: 16px;
   }
 
-  .heroImage {
-    padding: 24px;
-  }
-
   .stats {
     grid-template-columns: 1fr;
     padding: 20px;
