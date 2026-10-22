@@ -61,15 +61,15 @@
   align-items: center;
   background-color: #fbe9ba;
   border-radius: 30px;
-  padding: 40px;
   aspect-ratio: 1;
+  overflow: hidden;
 }
 
 .image {
   width: 100%;
-  max-width: 400px;
-  border-radius: 20px;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .stats {

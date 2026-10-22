@@ -26,8 +26,8 @@ const Home = () => {
         </div>
         <div className={css.heroImage}>
           <img
-            src="https://ftp.goit.study/img/avatars/1.jpg"
-            alt="Language tutor"
+            src="/hero.webp"
+            alt="3D avatar of a red-haired boy winking and sticking out his tongue behind an Apple laptop"
             className={css.image}
           />
         </div>
