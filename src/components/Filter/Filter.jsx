@@ -1,7 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import css from "./Filter.module.css";
 
-const LANGUAGES = ["French", "English", "German", "Ukrainian", "Polish"];
+const LANGUAGES = [
+  "French",
+  "English",
+  "German",
+  "Spanish",
+  "Mandarin Chinese",
+  "Italian",
+  "Korean",
+  "Vietnamese",
+];
 const LEVELS = [
   "A1 Beginner",
   "A2 Elementary",
